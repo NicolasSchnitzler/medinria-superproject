@@ -19,8 +19,14 @@ set(ep dtk)
 ## List the dependencies of the project
 ## #############################################################################
 
+find_package(Qt5Core        REQUIRED)
+find_package(Qt5Quick       REQUIRED)
+find_package(Qt5Network     REQUIRED)
+find_package(Qt5Gui         REQUIRED)
+find_package(Qt5Xml         REQUIRED)
+find_package(Qt5Declarative REQUIRED)
+
 list(APPEND ${ep}_dependencies 
-  Qt4
   )
   
 
@@ -49,7 +55,7 @@ EP_SetDirectories(${ep}
 ## Define repository where get the sources
 ## #############################################################################
 
-set(url git://dtk.inria.fr/+medinria/dtk/dtk-clone-medinria.git)
+set(url git@github.com:d-tk/dtk.git)
 if (NOT DEFINED ${ep}_SOURCE_DIR)
   set(location GIT_REPOSITORY ${url})
 endif()

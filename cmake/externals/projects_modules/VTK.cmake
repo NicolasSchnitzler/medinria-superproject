@@ -20,7 +20,6 @@ set(ep VTK)
 ## #############################################################################
 
 list(APPEND ${ep}_dependencies 
-  Qt4
   )
   
 
@@ -48,8 +47,8 @@ EP_SetDirectories(${ep}
 ## Define repository where get the sources
 ## #############################################################################
 
-# Set GIT_TAG to latest commit of origin/release-5.10 known to work
-set(tag ed00ef1c94964bfdd4e0a4097311154758bbe083)
+# Set GIT_TAG to latest commit of origin/release-6.10 known to work
+set(tag "v6.1.0")
 if (NOT DEFINED ${ep}_SOURCE_DIR)
     set(location GIT_REPOSITORY "git://vtk.org/VTK.git" GIT_TAG ${tag})
 endif()

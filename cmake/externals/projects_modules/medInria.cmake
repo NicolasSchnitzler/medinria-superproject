@@ -19,13 +19,11 @@ set(ep medInria)
 ## List the dependencies of the project
 ## #############################################################################
 
-list(APPEND ${ep}_dependencies 
-  Qt4 
+list(APPEND ${ep}_dependencies  
   dtk 
   DCMTK 
   ITK 
   VTK 
-  TTK 
   QtDCM
   RPI
   )

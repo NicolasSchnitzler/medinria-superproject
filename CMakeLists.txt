@@ -42,13 +42,20 @@ project(medInria-superProject)
 #   * otherwise use download and compile locally the package as an external 
 #     module.
 
+find_package(Qt5Core        REQUIRED)
+find_package(Qt5Quick       REQUIRED)
+find_package(Qt5Network     REQUIRED)
+find_package(Qt5Gui         REQUIRED)
+find_package(Qt5Xml         REQUIRED)
+find_package(Qt5Declarative REQUIRED)
+find_package(Qt5OpenGL      REQUIRED)
+find_package(Qt5Sql         REQUIRED)
+
 list(APPEND external_projects 
-  Qt4 
   dtk 
   VTK 
   ITK 
   DCMTK 
-  TTK 
   QtDCM 
   RPI 
   medInria
