@@ -19,7 +19,16 @@ set(ep medInria)
 ## List the dependencies of the project
 ## #############################################################################
 
-list(APPEND ${ep}_dependencies  
+find_package(Qt5Core        REQUIRED)
+find_package(Qt5Quick       REQUIRED)
+find_package(Qt5Network     REQUIRED)
+find_package(Qt5Gui         REQUIRED)
+find_package(Qt5Xml         REQUIRED)
+find_package(Qt5Declarative REQUIRED)
+find_package(Qt5OpenGL      REQUIRED)
+find_package(Qt5Sql         REQUIRED)
+
+list(APPEND ${ep}_dependencies 
   dtk 
   DCMTK 
   ITK 
@@ -59,9 +68,9 @@ EP_SetDirectories(${ep}
 ## Define repository where get the sources
 ## #############################################################################
 
-set(url ${GITHUB_PREFIX}medInria/medInria-public.git)
+set(url ${GITHUB_PREFIX}NicolasSchnitzler/medInria-public.git)
 if (NOT DEFINED ${ep}_SOURCE_DIR)
-  set(location GIT_REPOSITORY ${url})
+  set(location GIT_REPOSITORY ${url} GIT_TAG "vtk6-qt5-dtk1-RebaseOnProcessRefactoring")
 endif()
 
 
@@ -81,6 +90,7 @@ set(cmake_args
   -DCMAKE_CXX_FLAGS:STRING=${${ep}_cxx_flags}
   -DCMAKE_SHARED_LINKER_FLAGS:STRING=${${ep}_shared_linker_flags}  
   -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
+  -DCMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}
   -DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS_${ep}}
   -DQT_QMAKE_EXECUTABLE:FILEPATH=${QT_QMAKE_EXECUTABLE}
   -DDCMTK_DIR:FILEPATH=${DCMTK_DIR}

@@ -19,14 +19,8 @@ set(ep dtk)
 ## List the dependencies of the project
 ## #############################################################################
 
-find_package(Qt5Core        REQUIRED)
-find_package(Qt5Quick       REQUIRED)
-find_package(Qt5Network     REQUIRED)
-find_package(Qt5Gui         REQUIRED)
-find_package(Qt5Xml         REQUIRED)
-find_package(Qt5Declarative REQUIRED)
-
 list(APPEND ${ep}_dependencies 
+	""
   )
   
 
@@ -87,10 +81,18 @@ set(cmake_args
   -DCMAKE_C_FLAGS:STRING=${${ep}_c_flags}
   -DCMAKE_CXX_FLAGS:STRING=${${ep}_cxx_flags}   
   -DCMAKE_SHARED_LINKER_FLAGS:STRING=${${ep}_shared_linker_flags}  
+  -DCMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}
   -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
-  -DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS_${ep}}
+  -DBUILD_SHARED_LIBS:BOOL=ON
   -DQT_QMAKE_EXECUTABLE:FILEPATH=${QT_QMAKE_EXECUTABLE}
   -DDTK_BUILD_COMPOSER:BOOL=${BUILD_DTK_COMPOSER}
+  -DDTK_BUILD_SUPPORT_CORE:BOOL=ON
+  -DTK_BUILD_SUPPORT_CONTAINER:BOOL=ON
+  -DTK_BUILD_SUPPORT_COMPOSER:BOOL=ON
+  -DTK_BUILD_SUPPORT_DISTRIBUTED:BOOL=ON
+  -DTK_BUILD_SUPPORT_GUI:BOOL=ON
+  -DTK_BUILD_SUPPORT_MATH:BOOL=ON
+  -DTK_BUILD_SUPPORT_PLOT:BOOL=ON
   -DDTK_HAVE_NITE:BOOL=OFF
   )
 

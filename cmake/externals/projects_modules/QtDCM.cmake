@@ -19,6 +19,7 @@ set(ep QtDCM)
 ## List the dependencies of the project
 ## #############################################################################
 
+
 list(APPEND ${ep}_dependencies 
   ITK 
   DCMTK

@@ -20,7 +20,7 @@ set(ep ITK)
 ## #############################################################################
 
 list(APPEND ${ep}_dependencies 
-  ""
+  VTK
   )
   
   
@@ -49,7 +49,7 @@ EP_SetDirectories(${ep}
 ## Define repository where get the sources
 ## #############################################################################
 
-set(tag "v4.7.0")
+set(tag "v4.6.0")
 if (NOT DEFINED ${ep}_SOURCE_DIR)
     set(location GIT_REPOSITORY "git://itk.org/ITK.git" GIT_TAG ${tag})
 endif()
@@ -71,11 +71,13 @@ set(cmake_args
   -DCMAKE_CXX_FLAGS:STRING=${${ep}_cxx_flags}
   -DCMAKE_SHARED_LINKER_FLAGS:STRING=${${ep}_shared_linker_flags}  
   -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
-  -DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS_${ep}}
+  -DBUILD_SHARED_LIBS:BOOL=ON
   -DBUILD_EXAMPLES:BOOL=OFF
   -DBUILD_TESTING:BOOL=OFF
+  -DVTK_DIR:FILEPATH=${VTK_DIR}
   -DModule_ITKIOPhilipsREC:BOOL=ON
   -DModule_ITKReview:BOOL=ON
+  -DModule_ITKVtkGlue:BOOL=ON
   )
 
 ## #############################################################################

@@ -52,13 +52,14 @@ find_package(Qt5OpenGL      REQUIRED)
 find_package(Qt5Sql         REQUIRED)
 
 list(APPEND external_projects 
-  dtk 
-  VTK 
-  ITK 
-  DCMTK 
-  QtDCM 
-  RPI 
-  medInria
+  DTK
+DCMTK
+VTK
+ITK
+RPI
+QtDCM
+medInria
+
   )
 
 ## #############################################################################
@@ -174,4 +175,4 @@ include(ConfigureExternalProjects)
 ## Package
 ## #############################################################################
 
-include(Packaging)
+#include(Packaging)

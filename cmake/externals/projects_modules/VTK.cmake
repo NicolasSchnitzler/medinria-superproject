@@ -20,6 +20,7 @@ set(ep VTK)
 ## #############################################################################
 
 list(APPEND ${ep}_dependencies 
+	""
   )
   
 
@@ -48,7 +49,7 @@ EP_SetDirectories(${ep}
 ## #############################################################################
 
 # Set GIT_TAG to latest commit of origin/release-6.10 known to work
-set(tag "v6.1.0")
+set(tag 82840f008383c7767c693edb82ddddab1d9f9a51)
 if (NOT DEFINED ${ep}_SOURCE_DIR)
     set(location GIT_REPOSITORY "git://vtk.org/VTK.git" GIT_TAG ${tag})
 endif()
@@ -71,10 +72,16 @@ set(cmake_args
   -DCMAKE_CXX_FLAGS:STRING=${${ep}_cxx_flags}
   -DCMAKE_SHARED_LINKER_FLAGS:STRING=${${ep}_shared_linker_flags}  
   -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>  
-  -DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS_${ep}}
+  -DBUILD_SHARED_LIBS:BOOL=ON
   -DQT_QMAKE_EXECUTABLE:FILEPATH=${QT_QMAKE_EXECUTABLE}
   -DVTK_USE_QT:BOOL=ON
+  -DVTK_Group_Imaging:BOOL=ON
+  -DVTK_Group_Rendering:BOOL=ON
+  -DVTK_Group_Graphics:BOOL=ON
+  -DVTK_Group_Hybridt:BOOL=ON
+  -DVTK_Group_Views:BOOL=ON
   -DVTK_WRAP_TCL:BOOL=OFF
+  -DVTK_USE_GLSL_SHADERS:BOOL=ON
   -DBUILD_TESTING:BOOL=OFF 
   )
 
