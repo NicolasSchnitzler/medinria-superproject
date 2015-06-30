@@ -51,7 +51,7 @@ EP_SetDirectories(${ep}
 
 set(tag "v4.8.0")
 if (NOT DEFINED ${ep}_SOURCE_DIR)
-    set(location GIT_REPOSITORY "${GITHUB_PREFIX}InsightSoftwareConsortium/ITK.git" GIT_TAG ${tag})
+    set(location GIT_REPOSITORY "git@github.com:InsightSoftwareConsortium/ITK.git" GIT_TAG ${tag})
 endif()
 
 
